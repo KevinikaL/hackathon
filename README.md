@@ -7,7 +7,7 @@ A person planning a game night for up to six players needs a board game that acc
 
 ## Links
 
-- Live: 
+- Live: https://perfect-board-game-finder.netlify.app/
 - Repo: https://github.com/KevinikaL/hackathon
 
 ## The plan
