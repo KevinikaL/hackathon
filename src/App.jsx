@@ -28,9 +28,10 @@ function App() {
       {/* Show any API error message */}
       <p>{error}</p>
 
-      {/* Display the first two board games */}
-      <RecordCard record={records[0]} />
-      <RecordCard record={records[1]} />
+      {/* Loop through the records array and display each board game as a RecordCard component. */}
+      {records.map((record) => (
+        <RecordCard key={record.id} record={record} />
+      ))}
     </div>
   )
 }
