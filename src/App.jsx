@@ -2,7 +2,6 @@ function App() {
   return (
     <div>
       <h1>Find Your Perfect Board Game</h1>
-
       <p>
         A person planning a game night for up to six players
         needs a board game that accommodates their entire group
