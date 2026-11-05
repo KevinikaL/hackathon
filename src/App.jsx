@@ -2,6 +2,8 @@
 import { useState } from 'react'
 import useFetchData from './useFetchData.js'
 import RecordCard from './RecordCard.jsx'
+import Details from './Details.jsx'
+
 
 function App() {
   // Get the board games from my API
@@ -10,6 +12,10 @@ function App() {
   )
  // Remember how many players the visitor selects
   const [playerCount, setPlayerCount] = useState(1)
+
+   // Remember which game the visitor wants to see
+  const [selectedId, setSelectedId] = useState(null)
+
   // Wait until the board game records arrive
   if (loading) {
     return <p>Loading…</p>
@@ -21,6 +27,10 @@ function App() {
 
     return playerCount >= minimum && playerCount <= maximum
   })
+    // Find the board game whose Details button was clicked
+  const selectedGame = records.find(
+    (record) => record.id === selectedId
+  )
 
   return (
     <div>
@@ -57,8 +67,15 @@ function App() {
 
       {/* Display only games that support the selected player count */}
       {matchingGames.map((record) => (
-        <RecordCard key={record.id} record={record} />
+        <RecordCard 
+        key={record.id} 
+        record={record} 
+        onShowDetails={setSelectedId}
+        />
       ))}
+
+      {/* Display information for the selected game */}
+      {selectedGame && <Details record={selectedGame} />}
     </div>
   )
 }
